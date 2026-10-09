@@ -1,0 +1,15 @@
+{
+  // Developer machine settings (Windows + MSYS2 UCRT64). CI does not use this file.
+  "cmake.cmakePath": "C:/msys64/ucrt64/bin/cmake.exe",
+  "cmake.useCMakePresets": "always",
+  "cmake.environment": {
+    "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+  },
+  "terminal.integrated.env.windows": {
+    "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+  },
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true
+}

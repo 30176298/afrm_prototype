@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Check environment",
+      "type": "shell",
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/check-env.ps1",
+      "problemMatcher": []
+    },
+    {
+      "label": "Configure + build + test (gcc-debug)",
+      "type": "shell",
+      "command": "cmake --preset gcc-debug; if ($?) { cmake --build --preset gcc-debug }; if ($?) { ctest --preset gcc-debug }",
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Configure + build + test (gcc-release)",
+      "type": "shell",
+      "command": "cmake --preset gcc-release; if ($?) { cmake --build --preset gcc-release }; if ($?) { ctest --preset gcc-release }",
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
