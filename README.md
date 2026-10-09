@@ -2,6 +2,12 @@
 
 Graphical desktop application for the evaluation of flight planning with regards to fuel feasibility.
 
+##VSCode
+Run tasks from command palette:
+  1. Check environment
+  2. Debug build
+  3. Release Build
+
 ##Toolchain
 C++17
 GCC (MSYS2) on development - MSVC and Linux GCC in CI
