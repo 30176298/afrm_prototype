@@ -1,0 +1,4 @@
+# Normalise line endings so Windows, Linux CI and scripts all agree.
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.png binary
