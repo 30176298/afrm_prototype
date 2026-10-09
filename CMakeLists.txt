@@ -7,6 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(AFRM_STATIC_RUNTIME "Link the MinGW runtime statically)" ON)
+option(AFRM_BUILD_GUI "Build the ImGui desktop application" ON)
 option(AFRM_SANITIZE "Build with AddressSanitizer and UBSan (Linux/GCC)" OFF)
 
 # Drop unused code and data from final binary
@@ -45,6 +46,12 @@ add_library(afrm_core STATIC src/core/version.cpp)
 target_include_directories(afrm_core PUBLIC src)
 target_compile_definitions(afrm_core PUBLIC AFRM_VERSION="${PROJECT_VERSION}")
 target_link_libraries(afrm_core PRIVATE afrm_options)
+
+if(AFRM_BUILD_GUI)
+  include(cmake/GuiDependencies.cmake)
+  add_executable(afrm src/gui/main.cpp)
+  target_link_libraries(afrm PRIVATE afrm_core afrm_options imgui)
+endif()
 
 enable_testing()
 add_subdirectory(tests)
