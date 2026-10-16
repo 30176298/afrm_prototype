@@ -47,8 +47,7 @@ add_subdirectory(src/core)
 
 if(AFRM_BUILD_GUI)
   include(cmake/GuiDependencies.cmake)
-  add_executable(afrm src/gui/main.cpp)
-  target_link_libraries(afrm PRIVATE afrm_core afrm_options imgui)
+  add_subdirectory(src/gui)
 endif()
 
 enable_testing()
