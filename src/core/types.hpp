@@ -30,3 +30,18 @@ struct Reserves {
   double final_reserve_min = 30.0;  // minutes of flight
   double marginal_pct = 5.0;        // marginal if spare fuel is below this percent of required fuel
 };
+
+enum class Status { Feasible, Marginal, Insufficient };
+
+// Everything the calculation produces
+struct Report {
+  std::string error;
+  double trip_kg = 0.0;
+  double contingency_kg = 0.0;
+  double alternate_kg = 0.0;
+  double final_reserve_kg = 0.0;
+  double required_kg = 0.0;
+  double margin_kg = 0.0;  // fuel on board minus required fuel
+  double max_range_nm = 0.0;
+  Status status = Status::Insufficient;
+};
