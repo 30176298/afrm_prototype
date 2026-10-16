@@ -1,0 +1,4 @@
+time_s,speed_kt,altitude_ft,distance_nm
+0,150,0,0
+60,abc,2000,2.4
+120,193,4000,5.3

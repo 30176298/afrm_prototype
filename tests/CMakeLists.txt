@@ -6,7 +6,8 @@ add_executable(afrm_tests
   test_validate.cpp
   test_fuel.cpp
   test_assess.cpp
-  test_scenarios.cpp)
+  test_scenarios.cpp
+  test_invalid_files.cpp)
 target_link_libraries(afrm_tests PRIVATE afrm_core afrm_options Catch2::Catch2WithMain)
 
 target_compile_definitions(afrm_tests PRIVATE AFRM_DATA_DIR="${PROJECT_SOURCE_DIR}/data")

@@ -1,0 +1,2 @@
+model,fuel_capacity_kg,takeoff_weight_kg,fuel_onboard_kg,stores_burn_pct,burn_kg_h_per_t
+SK-100,9000,38000,12000,0,36
