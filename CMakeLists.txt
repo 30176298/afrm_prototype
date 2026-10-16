@@ -41,11 +41,9 @@ endif()
 
 include(cmake/Dependencies.cmake)
 
-# Calculation core - plain C++ with no GUI 
-add_library(afrm_core STATIC src/core/version.cpp)
-target_include_directories(afrm_core PUBLIC src)
-target_compile_definitions(afrm_core PUBLIC AFRM_VERSION="${PROJECT_VERSION}")
-target_link_libraries(afrm_core PRIVATE afrm_options)
+# Calculation core - plain C++ with no GUI
+add_subdirectory(src/core)
+
 
 if(AFRM_BUILD_GUI)
   include(cmake/GuiDependencies.cmake)
