@@ -8,6 +8,14 @@ Changes to data formats or public interface functions raises the MAJOR number
 After initial baseline v1.0.0, changes are implemented via change process in README.md,
 github issues, pull requests
 
+## [1.0.1] - 2026-10-28
+
+### Changes
+- Added coverage preset fo CMake
+- Added coverage job to CI
+- Updated CI to cover all branches
+- Added GitHub rules for pull request and CI pass prior to main merge
+
 ## [1.0.0] - 2026-10-28
 
 Controlled baseline to define boundary between assignments 1 and 2. No significant changes made, just the addition of the change process docs.
