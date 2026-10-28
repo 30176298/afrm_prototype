@@ -39,19 +39,30 @@
       "displayName": "MSVC (Visual Studio generator)",
       "inherits": "base",
       "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" }
+    },
+    {
+      "name": "coverage",
+      "displayName": "GCC Debug + coverage (Linux)",
+      "inherits": "gcc-debug",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "--coverage -O0",
+        "AFRM_BUILD_GUI": "OFF"
+      }
     }
   ],
   "buildPresets": [
     { "name": "gcc-debug",   "configurePreset": "gcc-debug" },
     { "name": "gcc-release", "configurePreset": "gcc-release" },
     { "name": "asan",        "configurePreset": "asan" },
-    { "name": "msvc",        "configurePreset": "msvc", "configuration": "Release" }
+    { "name": "msvc",        "configurePreset": "msvc", "configuration": "Release" },
+    { "name": "coverage",    "configurePreset": "coverage" }
   ],
   "testPresets": [
     { "name": "gcc-debug",   "configurePreset": "gcc-debug",   "output": { "outputOnFailure": true } },
     { "name": "gcc-release", "configurePreset": "gcc-release", "output": { "outputOnFailure": true } },
     { "name": "asan",        "configurePreset": "asan",        "output": { "outputOnFailure": true } },
     { "name": "msvc",        "configurePreset": "msvc",        "configuration": "Release",
-      "output": { "outputOnFailure": true } }
+      "output": { "outputOnFailure": true } },
+    { "name": "coverage",    "configurePreset": "coverage",    "output": { "outputOnFailure": true } }
   ]
 }

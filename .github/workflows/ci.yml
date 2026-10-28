@@ -83,3 +83,20 @@ jobs:
         with:
           name: afrm-windows-gcc
           path: build/gcc-release/afrm.exe
+
+  coverage:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Install tools
+          run: sudo apt-get update && sudo apt-get install -y ninja-build gcovr
+        - name: Build, test, measure
+          run: |
+            cmake --preset coverage
+            cmake --build --preset coverage
+            ctest --preset coverage
+            gcovr -r . --object-directory build/coverage --filter 'src/core/' --exclude-throw-branches --print-summary --html-details coverage.html
+        - uses: actions/upload-artifact@v4
+          with:
+            name: coverage-report
+            path: coverage*.html
