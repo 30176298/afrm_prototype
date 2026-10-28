@@ -96,7 +96,7 @@ jobs:
             cmake --preset coverage
             cmake --build --preset coverage
             ctest --preset coverage
-            gcovr -r . --object-directory build/coverage --filter 'src/core/' --exclude-throw-branches --print-summary --html-details coverage.html
+            gcovr -r . --object-directory build/coverage --filter 'src/core/' build/coverage/src/core --exclude-throw-branches --print-summary --html-details coverage.html
         - uses: actions/upload-artifact@v4
           with:
             name: coverage-report
