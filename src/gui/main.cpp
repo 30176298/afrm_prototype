@@ -101,6 +101,7 @@ void draw_settings(AppState& state) {
   ImGui::InputDouble("Alternate distance (NM)", &reserves.alternate_nm, 10.0, 50.0, "%.0f");
   ImGui::InputDouble("Final reserve (minutes)", &reserves.final_reserve_min, 5.0, 15.0, "%.0f");
   ImGui::InputDouble("Marginal band (% of required)", &reserves.marginal_pct, 1.0, 5.0, "%.1f");
+  ImGui::InputDouble("Taxi fuel (kg)", &reserves.taxi_kg, 10.0, 50.0, "%.0f");
 }
 
 void result_row(const char* name, double value, const char* unit) {
@@ -124,6 +125,7 @@ void draw_results(const AppState& state) {
     result_row("Contingency", report.contingency_kg, "kg");
     result_row("Alternate", report.alternate_kg, "kg");
     result_row("Final reserve", report.final_reserve_kg, "kg");
+    result_row("Taxi", report.taxi_kg, "kg");
     result_row("Required fuel", report.required_kg, "kg");
     result_row("Fuel on board", state.aircraft.fuel_onboard_kg, "kg");
     result_row("Spare fuel (margin)", report.margin_kg, "kg");

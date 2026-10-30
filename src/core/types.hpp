@@ -29,6 +29,7 @@ struct Reserves {
   double alternate_nm = 100.0;      // distance of diversion
   double final_reserve_min = 30.0;  // minutes of flight
   double marginal_pct = 5.0;        // marginal if spare fuel is below this percent of required fuel
+  double taxi_kg = 100.0;           // taxi fuel allowance, added to the required fuel
 };
 
 enum class Status { Feasible, Marginal, Insufficient };
@@ -40,6 +41,7 @@ struct Report {
   double contingency_kg = 0.0;
   double alternate_kg = 0.0;
   double final_reserve_kg = 0.0;
+  double taxi_kg = 0.0;
   double required_kg = 0.0;
   double margin_kg = 0.0;  // fuel on board minus required fuel
   double max_range_nm = 0.0;

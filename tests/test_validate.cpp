@@ -123,3 +123,15 @@ TEST_CASE("DR-05 rejects fuel on board that is not less than the take-off weight
   aircraft.fuel_onboard_kg = 10000;  // equal to take-off weight
   REQUIRE_THAT(check(example_flight(), aircraft), ContainsSubstring("less than takeoff_weight_kg"));
 }
+
+TEST_CASE("DR-03 rejects a taxi allowance outside the limits", "[DR-03]") {
+  Reserves reserves;
+  reserves.taxi_kg = -1;
+  REQUIRE_THAT(check(example_flight(), example_aircraft(), reserves), ContainsSubstring("taxi_kg"));
+  reserves.taxi_kg = 1001;
+  REQUIRE_THAT(check(example_flight(), example_aircraft(), reserves), ContainsSubstring("taxi_kg"));
+  reserves.taxi_kg = 0;
+  REQUIRE(check(example_flight(), example_aircraft(), reserves).empty());
+  reserves.taxi_kg = 1000;
+  REQUIRE(check(example_flight(), example_aircraft(), reserves).empty());
+}
