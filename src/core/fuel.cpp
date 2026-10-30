@@ -2,9 +2,13 @@
 #include "core/validate.hpp"
 #include <algorithm>
 
-double fuel_flow_kg_h(const Aircraft& aircraft) {
-  const double tonnes = aircraft.takeoff_weight_kg / 1000.0;
+double fuel_flow_kg_h(const Aircraft& aircraft, double weight_kg) {
+  const double tonnes = weight_kg / 1000.0;
   return aircraft.burn_kg_h_per_t * tonnes * (1.0 + aircraft.stores_burn_pct / 100.0);
+}
+
+double fuel_flow_kg_h(const Aircraft& aircraft) {
+  return fuel_flow_kg_h(aircraft, aircraft.takeoff_weight_kg);
 }
 
 double trip_fuel_kg(const Flight& flight, const Aircraft& aircraft) {

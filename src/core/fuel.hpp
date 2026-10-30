@@ -2,7 +2,10 @@
 
 #include "core/types.hpp"
 
-// Fuel burned per hour in kg/h burn rate multiplied by the takeoff weight in tonnes, respecting stores
+// Fuel burned per hour in kg/h: burn rate multiplied by the aircraft weight in tonnes, respecting stores
+double fuel_flow_kg_h(const Aircraft& aircraft, double weight_kg);
+
+// The same at the aircraft's take-off weight
 double fuel_flow_kg_h(const Aircraft& aircraft);
 
 // Fuel burned over whole flight in kg

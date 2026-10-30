@@ -32,6 +32,7 @@ std::string check_reserves(const Reserves& r) {
   if (error.empty()) error = range_error("alternate_nm", r.alternate_nm, 0, 1000);
   if (error.empty()) error = range_error("final_reserve_min", r.final_reserve_min, 0, 180);
   if (error.empty()) error = range_error("marginal_pct", r.marginal_pct, 0, 100);
+  if (error.empty()) error = range_error("taxi_kg", r.taxi_kg, 0, 1000);
   return error;
 }
 
