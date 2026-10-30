@@ -1,5 +1,11 @@
 # AFRM requirements
 
+## Revision history
+
+| Rev | Version | Change record | Summary |
+|-----|---------|---------------|---------|
+| 1 | v1.0.0 | Assessment 1 baseline | Original 18 requirements |
+| 2 | v1.1.0 | CR-001 | FR-03 and FR-05 revised, FR-09 added, `taxi_kg` limit added to DR-03. FR-07 text is unchanged, but test data will change |
 
 ## Functional
 
@@ -7,12 +13,13 @@
 |----|---------------------|-------------|
 | FR-01 | load a time-indexed flight profile (time, speed, altitude, cumulative distance) from a CSV file | A |
 | FR-02 | load aircraft data (model, fuel capacity, take-off weight, fuel on board, stores drag, performance parameters) from a CSV file | A |
-| FR-03 | calculate trip fuel from a fixed fuel flow, set by the aircraft's take-off weight, and the flight time | A |
+| FR-03 | calculate trip fuel by stepping through the flight profile, with the fuel flow in each segment set by the aircraft's current weight, which falls as fuel is burned | A |
 | FR-04 | increase the fuel flow by a set percentage when external stores are carried | A |
-| FR-05 | calculate contingency, alternate and final reserve fuel from user-set constraints, and add them to trip fuel to give the required fuel | A |
+| FR-05 | calculate contingency, alternate and final reserve fuel from user-set constraints, with the alternate and final reserve based on the estimated landing weight, and add them and the taxi allowance to trip fuel to give the required fuel | A |
 | FR-06 | classify the flight as Feasible, Marginal or Insufficient by comparing the fuel on board with the required fuel | A |
 | FR-07 | calculate the maximum range achievable with the fuel on board, using the same profile and reserves | A |
 | FR-08 | present the inputs, results and status in a graphical interface | M |
+| FR-09 | include a user-set taxi-fuel allowance in the required fuel, and report it separately | A |
 
 ## Data validation
 
