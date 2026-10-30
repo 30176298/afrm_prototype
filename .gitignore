@@ -8,3 +8,6 @@ compile_commands.json
 .vs/
 *.user
 Thumbs.db
+
+# Python (test oracle)
+__pycache__/
